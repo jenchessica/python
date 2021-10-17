@@ -6,6 +6,18 @@ def LCM(a, b):
       lcm=lcm+max
   return lcm
 
+def GCD(a, b):
+    gcd=a*b/LCM(a, b)
+    return int(gcd)
+
+def EUCLID(a, b):
+    c=a%b
+    while c!=0:
+          a=b
+          b=c
+          c=a%b
+    return b
+
 def Max(a, b):
     if a>b:
         return a
@@ -19,3 +31,7 @@ def Min(a, b):
         return b
 
 print(LCM(2, 3))
+print(EUCLID(45, 30))
+print(EUCLID(12652365, 234239835))
+print(GCD(2, 3))
+
