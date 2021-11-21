@@ -1,3 +1,8 @@
+# The absolute path is: C:\Users\Jessica\AppData\Local\Programs\Git
+
+Jessica@SarahV MINGW64 /
+$ cd python/
+
 Jessica@SarahV MINGW64 /python (master)
 $ pwd
 /python
