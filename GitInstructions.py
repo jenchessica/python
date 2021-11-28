@@ -1,4 +1,10 @@
 # The absolute path is: C:\Users\Jessica\AppData\Local\Programs\Git
+Jessica@SarahV MINGW64 /python (master)
+$ ls
+FactorialFacts.py      GitInstructions.py  PiCode.py          PrimeTime.py  Sumthing.py
+Fig-onacci.py          LCM.py              PlotTesting.py     README.md     __pycache__/
+FractionArithmetic.py  NumberGuessing.py   PointSlopeForm.py  Rectangle.py
+
 
 Jessica@SarahV MINGW64 /
 $ cd python/
