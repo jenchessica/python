@@ -52,5 +52,40 @@ def TriangleB(n):
         print('')
     return
 
-TriangleB(3)
+#TriangleB(3)
 
+def Diamond(n):
+    for row in range (-n, n+1):
+        for col in range (-n, n+1):
+            if abs(col)<=n-abs(row):
+                print('*', end='')
+            else:
+                print(' ', end='')
+        print('')
+    return
+
+#Diamond(3)
+
+def ReverseDiamond(n):
+    for row in range (-n, n+1):
+        for col in range (-n, n+1):
+            if abs(col)>n-abs(row):
+                print('*', end='')
+            else:
+                print(' ', end='')
+        print('')
+    return
+
+ReverseDiamond(3)
+
+def HollowDiamond(n):
+    for row in range (-n, n+1):
+        for col in range (-n, n+1):
+            if abs(col)==n-abs(row):
+                print('*', end='')
+            else:
+                print(' ', end='')
+        print('')
+    return
+
+#HollowDiamond(3)
