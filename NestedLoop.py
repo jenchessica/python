@@ -76,7 +76,7 @@ def ReverseDiamond(n):
         print('')
     return
 
-ReverseDiamond(3)
+#ReverseDiamond(3)
 
 def HollowDiamond(n):
     for row in range (-n, n+1):
@@ -89,3 +89,16 @@ def HollowDiamond(n):
     return
 
 #HollowDiamond(3)
+
+def Diamond3D(n):
+    for z in range (-n, n+1):
+        for y in range (-n, n+1):
+            for x in range (-n, n+1):
+                if abs(x)+abs(y)+abs(z)<=n:
+                    print('*', end='')
+                else:
+                    print(' ', end='')
+            print('')
+    return
+
+Diamond3D(3)
