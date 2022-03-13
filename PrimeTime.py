@@ -1,4 +1,5 @@
 import math
+
 def isPrimeNumber(x):
     max_i = int (math.sqrt(x))
     for i in range(2, max_i + 1):
@@ -6,5 +7,7 @@ def isPrimeNumber(x):
         return False
     return True
 
-print(isPrimeNumber(9343))
+for x in range (2, 101):
+   if isPrimeNumber(x) == True:
+       print(x)
 
