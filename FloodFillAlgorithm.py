@@ -13,6 +13,10 @@ def drawfig(grid):
 
     plt.show()
 
+def explorenewcell(grid,newrow,newcol,queue):
+    if newrow>=0 and newrow<=9 and newcol>=0 and newcol<=9 and grid[newrow][newcol]==0:
+        queue.append(newrow*10+newcol)
+
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -27,4 +31,26 @@ grid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
+queue = []
+queue.append(3*10+2)
+
+while len(queue)>0:
+    cell = queue.pop(0)
+    col = int(cell%10)
+    row = int(cell/10)
+
+    #process this cell
+
+    #fill color
+    grid[row][col]=2
+
+    #explore
+    explorenewcell(grid,row-1,col,queue)
+    explorenewcell(grid,row+1,col,queue)
+    explorenewcell(grid,row,col-1,queue)
+    explorenewcell(grid,row,col+1,queue)
+
 drawfig(grid)
+
+
+
