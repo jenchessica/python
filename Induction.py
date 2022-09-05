@@ -57,3 +57,14 @@ def calculate_cubes():
         print("cube(" + str(n) + ")=" + str(c[n]))
 
 calculate_cubes()
+
+def calculate_tilecovering():
+    f = [0]*11
+    f[1]=1
+    f[2]=2
+
+    for n in range (3, 11):
+        f[n]=f[n-1]+f[n-2]
+        print("f(" + str(n) + ")=" + str(f[n]))
+
+calculate_tilecovering()
