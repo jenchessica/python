@@ -18,11 +18,19 @@ def DrawLine(p1, p2):
 
 def ParallelLine(p1, p2, p3):
     m = DrawLine(p1, p2)
+
+    #calculate slope and intercept of parallel line
     b = p3.y-(m*p3.x)
     x = np.linspace(-5,5,10)
     y = m*x+b
     plt.plot(x, y, '-b')
     plt.scatter(p3.x, p3.y, color = 'blue')
+
+    #calculate slope and intercept of perpendicular line
+    n = -1/m
+    c = p3.y-(n*p3.x)
+    y = n*x+c
+    plt.plot(x, y, '-p')
 
 p1 = Point(3, 4)
 p2 = Point(5, 2)
