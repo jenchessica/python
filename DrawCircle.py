@@ -12,7 +12,7 @@ print (math.sin(math.radians(90)))
 
 # plt.scatter(x, y, s=10, color = 'blue')
 
-r=1
+r=2
 x=r*(math.cos(math.radians(30)))
 y=r*(math.sin(math.radians(30)))
 
@@ -22,17 +22,21 @@ DrawLine(x,y,0,0)
 
 degree=1
 
-while degree <= 90:
+while degree <= 45:
     x=r*(math.cos(math.radians(degree)))
     y=r*(math.sin(math.radians(degree)))
     plt.scatter(x, y, s=10, color = 'blue')
     plt.scatter(-x, y, s=10, color = 'blue')
     plt.scatter(-x, -y, s=10, color = 'blue')
     plt.scatter(x, -y, s=10, color = 'blue')
+    plt.scatter(y, x, s=10, color = 'blue')
+    plt.scatter(y, -x, s=10, color = 'blue')
+    plt.scatter(-y, -x, s=10, color = 'blue')
+    plt.scatter(-y, x, s=10, color = 'blue')
     degree=degree+5
 
-plt.xlim([-1.5, 1.5])
-plt.ylim([-1.5, 1.5])
+plt.xlim([-1.5*r, 1.5*r])
+plt.ylim([-1.5*r, 1.5*r])
 
 plt.grid()
 plt.show()
