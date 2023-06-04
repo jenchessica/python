@@ -1,3 +1,5 @@
+import random
+
 class Ship:
    def __init__(self, isHorizontal, length, x, y):
     self.isHorizontal = isHorizontal
@@ -6,16 +8,24 @@ class Ship:
     self.y = y
 
 def DrawFront(b):
+      print("    0 1 2 3 4 5 6 7")
+      print("-------------------")
       for i in range(0, len(b)):
+            print(str(i) + " | ", end='')
             for j in range(0, len(b[i])):
                 print(symbols[b[i][j]] + " ", end='')
             print()
+      print()
 
 def DrawBack(b):
+      print("    0 1 2 3 4 5 6 7")
+      print("-------------------")
       for i in range(0, len(b)):
+            print(str(i) + " | ", end='')
             for j in range(0, len(b[i])):
                 print(str(b[i][j]) + " ", end='')
             print()
+      print()
 
 def PlaceShips(ships):
     totalLength=0
@@ -30,17 +40,50 @@ def PlaceShips(ships):
                 back[ship.y+j][ship.x]=1
     return totalLength
 
+#Randomly place a ship of length, return true if successful
+def PlaceRandomShip(length):
+    isHorizontal = random.randrange(0, 2)
+    if isHorizontal == 0:
+        #this is vertical ship
+        x = random.randrange(0, n)
+        y = random.randrange(0, n-length+1)
+        #Check all spots to ensure you can put entire ship
+        for j in range(0,length):
+            if back[y+j][x] == 1:
+                return False
+        #Put in ship
+        for j in range(0,length):
+            back[y+j][x]=1
+    else:
+        #this is horizontal ship
+        y = random.randrange(0, n)
+        x = random.randrange(0, n-length+1)
+        #Check all spots to ensure you can put entire ship
+        for j in range(0,length):
+            if back[y][x+j] == 1:
+                return False
+        #Put in ship
+        for j in range(0,length):
+            back[y][x+j]=1
+    return True
+
+def PlaceRandomShipwithRetry(length):
+    isSuccessful = False
+    while not isSuccessful:
+        isSuccessful = PlaceRandomShip(length)
+
 symbols = [".", "M", "H"]
 
 n = 8
 front =  [[0]*n for i in range(n)]
 back =  [[0]*n for i in range(n)]
 
-ship1=Ship(False,2,3,4)
-ship2=Ship(True,3,1,6)
+PlaceRandomShipwithRetry(2)
+PlaceRandomShipwithRetry(3)
+PlaceRandomShipwithRetry(4)
 
-remainingLength=PlaceShips([ship1,ship2])
-DrawBack(back)
+remainingLength=9
+# DrawBack(back)
 
 while remainingLength>0:
     DrawFront(front)
